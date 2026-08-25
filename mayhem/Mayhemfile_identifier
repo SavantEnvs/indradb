@@ -1,0 +1,11 @@
+project: savantenvs/indradb
+target: identifier
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/identifier/testsuite
+
+cmds:
+  - cmd: /mayhem/identifier
+    libfuzzer: true
+    timeout: 30
