@@ -1,0 +1,21 @@
+# Per-Dockerfile .dockerignore for `-f mayhem/Dockerfile` builds. BuildKit
+# gives this file full precedence over the context-root .dockerignore.
+#
+# Upstream's OWN root .dockerignore excludes `.git` and `.github` (tuned for
+# their own deploy image) — left alone, `docker build -f mayhem/Dockerfile .`
+# would strip the git history and workflow files out of the build context,
+# and the image would fail SPEC §6.2 item 2 ("full repo incl .git baked in").
+# This override re-includes everything except real build-artifact/editor
+# cruft (docs/netnew-worker-prompt.md §4b).
+
+# ── Build outputs / local cruft ──────────────────────────────────────────────
+**/target
+mayhem-build/
+*.o
+*.a
+*.so
+
+# ── Editor / OS noise ────────────────────────────────────────────────────────
+.DS_Store
+*.swp
+*~

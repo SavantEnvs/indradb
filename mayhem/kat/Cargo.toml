@@ -1,0 +1,22 @@
+[package]
+name = "indradb-mayhem-kat"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+# Standalone crate under mayhem/ — needs its own empty [workspace] table for the
+# same reason as mayhem/fuzz (see the comment there); never a member of the
+# upstream root workspace.
+[workspace]
+
+[dependencies]
+serde_json = "1"
+uuid = "1"
+
+[dependencies.indradb-lib]
+path = "../../lib"
+default-features = false
+
+[[bin]]
+name = "kat"
+path = "src/main.rs"

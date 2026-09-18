@@ -1,0 +1,8 @@
+project: savantenvs/indradb
+target: compare-buggy-mhh-run-26
+# origin: https://app.mayhem.security/mayhemheroes/indradb/compare/26
+
+cmds:
+  - cmd: /mayhem/compare
+    libfuzzer: true
+    timeout: 30
